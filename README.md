@@ -3,18 +3,26 @@ web application firewall use redis cache
 
 # 说明
 waf使用redis缓存数据
+
 使用redis缓存数据可以保持数据的持久性；
+
 即使nginx、redis重启，数据依然存在且有效
 
 # 安装说明
 openresty安装完毕
+
 nginx.conf http中添加模块
+
     lua_package_path "/opt/openresty/lualib/resty/?.lua;;/opt/openresty/nginx/conf/_waf/?.lua;;";
+
     init_by_lua_file "/opt/openresty/nginx/conf/_waf/function_lib.lua";
+
     access_by_lua_file "/opt/openresty/nginx/conf/_waf/redis_connect.lua";
+
 （根据实际路径修改）
     
 把三个文件放入到conf/_waf/
+
 config.lua  function_lib.lua  redis_connect.lua
 
 增加一个nginx服务
