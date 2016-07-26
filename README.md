@@ -6,7 +6,7 @@ waf使用redis缓存数据
 使用redis缓存数据可以保持数据的持久性；
 即使nginx、redis重启，数据依然存在且有效
 
-#安装说明
+# 安装说明
 openresty安装完毕
 nginx.conf http中添加模块
     lua_package_path "/opt/openresty/lualib/resty/?.lua;;/opt/openresty/nginx/conf/_waf/?.lua;;";
@@ -43,7 +43,7 @@ config.lua  function_lib.lua  redis_connect.lua
   
   访问测试
   ---
-  #配置文件说明
+# 配置文件说明
   ```
   cat config.lua 
 -- "bantime" is the number of seconds that a host is banned.
